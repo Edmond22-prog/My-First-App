@@ -18,10 +18,20 @@ class MainActivity : AppCompatActivity() {
     private fun rollDice() {
         val dice = Dice(6)
         val diceRoll = dice.roll()
+        val diceRoll2 = dice.roll()
         // Recherche l'image d'id #imageView4 dans le Layout et le stocke dans la diceImage de type ImageView
-        val diceImage : ImageView = findViewById(R.id.imageView4)
+        val diceImage: ImageView = findViewById(R.id.imageView4)
+        val diceImage2: ImageView = findViewById(R.id.imageView5)
         // La valeur stocke dans diceRoll renvoi une ressource qui est stocke dans drawableResource
-        val drawableResource = when (diceRoll){
+        val drawableResource = when (diceRoll) {
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+        val drawableResource2 = when (diceRoll2) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
             3 -> R.drawable.dice_3
@@ -31,8 +41,10 @@ class MainActivity : AppCompatActivity() {
         }
         // Permet de remplacer une image du Layout par une autre
         diceImage.setImageResource(drawableResource)
+        diceImage2.setImageResource(drawableResource2)
         // Modifie le concept de description de l'image qui est affiche
         diceImage.contentDescription = diceRoll.toString()
+        diceImage2.contentDescription = diceRoll2.toString()
     }
 }
 
